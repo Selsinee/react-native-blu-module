@@ -1,5 +1,7 @@
 package com.reactnativeblumodule
 
+import android.content.Intent
+import androidx.core.content.ContextCompat
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
@@ -14,11 +16,10 @@ class BluModuleModule(reactContext: ReactApplicationContext) : ReactContextBaseJ
     // Example method
     // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
-    fun multiply(a: Int, b: Int, promise: Promise) {
-    
-      promise.resolve(a * b)
-    
+    fun goToBluApp() {
+      val intent = Intent(currentActivity, BluView::class.java)
+      ContextCompat.startActivity(reactApplicationContext, intent, null)
     }
 
-    
+
 }

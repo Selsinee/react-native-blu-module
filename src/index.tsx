@@ -17,6 +17,6 @@ const BluModule = NativeModules.BluModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return BluModule.multiply(a, b);
+export function goToBluApp() {
+  BluModule.goToBluApp();
 }
