@@ -11,8 +11,8 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View>
+      <Text>Landing</Text>
     </View>
   );
 }
