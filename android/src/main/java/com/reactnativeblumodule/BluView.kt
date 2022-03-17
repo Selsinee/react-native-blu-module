@@ -8,6 +8,11 @@ import com.blusdk.BluSdk
 import com.blusdk.BluView
 import com.blusdk.log.BluLogType
 import com.blusdk.webview.BluWebView
+import android.view.View
+
+import android.widget.ImageButton
+import androidx.appcompat.app.ActionBar
+
 
 /**
  * Created by Seline on 15/03/2022 11:04
@@ -19,6 +24,19 @@ class BluView : AppCompatActivity(), BluWebView.IBluWebViewListener {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.bluview_activity)
+
+    //set custom action bar
+    supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+    supportActionBar?.setDisplayShowCustomEnabled(true)
+    supportActionBar?.setCustomView(R.layout.custom_action_bar_layout)
+    supportActionBar?.elevation = 0F
+    val view: View? = supportActionBar?.customView
+
+    view?.findViewById<ImageButton>(R.id.action_bar_back)?.setOnClickListener {
+      onBackPressed()
+    }
+
+    //set blu webview
     bluView = findViewById(R.id.blu_view)
 
     BluSdk.initialize(this, BluSdk.ENV_DEV, "app-blu-binusstudent-dev")
