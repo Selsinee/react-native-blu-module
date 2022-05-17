@@ -9,14 +9,16 @@ const LINKING_ERROR =
 const BluModule = NativeModules.BluModule
   ? NativeModules.BluModule
   : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+    {},
+    {
+      get() {
+        throw new Error(LINKING_ERROR);
+      },
+    }
+  );
 
 export function goToBluApp() {
   BluModule.goToBluApp();
 }
+
+///test
